@@ -1,0 +1,4 @@
+.Appbar {
+    display: flex;
+    justify-content: space-between;
+}
