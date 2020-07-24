@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import Navigation from './Navigation/Navigation';
+import { BrowserRouter } from 'react-router-dom'
 
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Navigation />
+        <BrowserRouter>
+          <Navigation />
+        </BrowserRouter>
       </div>
     );
   }
