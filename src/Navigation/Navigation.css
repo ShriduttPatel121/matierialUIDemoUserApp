@@ -1,4 +1,4 @@
-.Appbar {
-    display: flex;
-    justify-content: space-between;
+.Main {
+    background-color: aliceblue;
+    height: 100vh;
 }

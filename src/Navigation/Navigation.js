@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import NewUser from '../containers/NewUsers/NewUsers';
 import AllUsers from '../containers/AllUsers/AllUsers';
 import YourUser from '../containers/YourUsers/YourUsers';
+import classes from './Navigation.css';
 class Navigation extends Component {
     state= {
         value : 0
@@ -14,9 +15,9 @@ class Navigation extends Component {
     }
     render() {
         let navBar = (
-            <AppBar style={{backgroundColor : '#1976d2'}} variant="outlined" position="fixed">
+            <AppBar variant="outlined" position="fixed">
                     <Tabs value={this.state.value} onChange={this.handleChange} aria-label="simple tabs example">
-                            <Tab style={{textTransform : 'capitalize'}} component={Link} to="/Managers" label="Managers"></Tab>
+                            <Tab  style={{textTransform : 'capitalize'}} component={Link} to="/Managers" label="Managers"></Tab>
                             <Tab style={{textTransform : 'capitalize'}} component={Link} to="/your-employees" label="Your Employees"></Tab>
                             <Tab style={{textTransform : 'capitalize'}} component={Link} to="/new-user" label="New user"></Tab>
                             <Tab  style={{marginLeft: 'auto',textTransform : 'capitalize'}} label='Logout'></Tab>
@@ -35,7 +36,7 @@ class Navigation extends Component {
         return (
             <React.Fragment>
                 {navBar}
-                <main>
+                <main className={classes.Main}>
                     {routes}
                 </main>
             </React.Fragment>
