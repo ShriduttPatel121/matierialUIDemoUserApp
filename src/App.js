@@ -21,15 +21,14 @@ const theme = createMuiTheme({
 class App extends Component {
   
   render() {
-    console.log(theme);
     return (
-      <div className="App">
+      <React.Fragment>
         <BrowserRouter>
         <MuiThemeProvider theme={theme}>
           <Navigation />
           </MuiThemeProvider>
         </BrowserRouter>
-      </div>
+      </React.Fragment>
     );
   }
 }
