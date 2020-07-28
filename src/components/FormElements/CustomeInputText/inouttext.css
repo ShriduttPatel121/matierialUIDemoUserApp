@@ -3,29 +3,3 @@
     padding: 10px;
     box-sizing: border-box;
 }
-
-
-
-.InputElement{
-    outline: none;
-    border: 1px solid black;
-    /* background-color: white; */
-    font: inherit;
-    padding: 6px 10px;
-    width: 100%;
-    display: block;
-    box-sizing: border-box;
-}
-
-.MuiInput-colorSecondary {
-    border: 1px solid black;
-}
-
-/* .InputElement:focus{
-    outline: none;
-    background-color: #ccc;
-}
-.Invalid{
-    border: 1px solid red;
-    background-color: rgb(241, 154, 144);
-} */

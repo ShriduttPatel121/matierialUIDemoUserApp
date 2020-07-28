@@ -28,8 +28,6 @@ const SelectInput = (props) => {
         fullWidth
       >
         {props.options.map(option =>  <MenuItem key={option.value}  value={option.value}>{option.label}</MenuItem>)}
-        {/* <MenuItem  value='true'>True</MenuItem>
-        <MenuItem selected value='false'>False</MenuItem> */}
       </Select>
       <FormHelperText>{errorText}</FormHelperText>
     </FormControl>

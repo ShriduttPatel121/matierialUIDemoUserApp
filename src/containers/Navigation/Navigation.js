@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { AppBar, Tabs, Tab } from '@material-ui/core';
 import { Route, Switch, Redirect } from 'react-router-dom'
 import { Link } from 'react-router-dom';
-import NewUser from '../containers/NewUsers/NewUsers';
-import AllUsers from '../containers/AllUsers/AllUsers';
-import YourUser from '../containers/YourUsers/YourUsers';
+import NewUser from '../NewUsers/NewUsers';
+import AllUsers from '../AllUsers/AllUsers';
+import YourUser from '../YourUsers/YourUsers';
 import classes from './Navigation.css';
 class Navigation extends Component {
     constructor(props) {

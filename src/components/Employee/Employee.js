@@ -1,9 +1,16 @@
-import React from 'react';
-import { Card, CardActionArea, CardContent, Typography, CardActions, Button } from '@material-ui/core';
-import { Edit, Details } from '@material-ui/icons'
-const Employee = (props) =>{
-    return(
-        <Card>
+import React from "react";
+import {
+  Card,
+  CardActionArea,
+  CardContent,
+  Typography,
+  CardActions,
+  Button,
+} from "@material-ui/core";
+import { Edit } from "@material-ui/icons";
+const Employee = (props) => {
+  return (
+    <Card>
       <CardActionArea>
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
@@ -15,12 +22,12 @@ const Employee = (props) =>{
         </CardContent>
       </CardActionArea>
       <CardActions>
-          <Edit />
+        <Edit />
         <Button size="small" color="primary">
           Show Details
         </Button>
       </CardActions>
     </Card>
-    );
+  );
 };
 export default Employee;
