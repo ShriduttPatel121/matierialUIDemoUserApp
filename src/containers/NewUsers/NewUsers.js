@@ -40,12 +40,15 @@ class NewUser extends Component {
         return (
             <div className={classe.form}>
             <Formik
-                initialValues = {{
+                initialValues = {this.props.editMode? {
                     name : '',
                     email : '',
                     password : '',
                     isAdmin : 'false'
-            }}
+            }
+            :
+            this.props.currentEmployee
+            }
             
             validationSchema={Yup.object({
                 name : Yup.string()
