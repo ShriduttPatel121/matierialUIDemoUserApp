@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Navigation from './Navigation/Navigation';
+import Navigation from './containers/Navigation/Navigation';
 import { BrowserRouter } from 'react-router-dom';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core'
 
