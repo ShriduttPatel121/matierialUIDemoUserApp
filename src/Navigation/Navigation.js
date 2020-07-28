@@ -21,9 +21,7 @@ class Navigation extends Component {
         }
         console.log(window.location.href)
     }
-    state= {
-        value : null
-    }
+    
     handleChange = (event, newValue) => {
         this.setState({value : newValue});
     }
