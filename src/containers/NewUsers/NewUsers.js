@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import CustomeInputText from "../FormElements/CustomeInputText/CustomInputText";
-import SelectInput from "../FormElements/CustomSelectInput/SelectInput";
+import CustomeInputText from "../../components/FormElements/CustomeInputText/CustomInputText";
+import SelectInput from "../../components/FormElements/CustomSelectInput/SelectInput";
 import { Button, withStyles } from "@material-ui/core";
 import * as Yup from "yup";
 import { Formik } from "formik";

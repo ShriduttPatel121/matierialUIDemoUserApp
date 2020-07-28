@@ -4,13 +4,14 @@
     align-items: center;
     /* justify-content: center;  */
     align-content: center;
+    height: 100%;
+    justify-content: center;
 }
 
 .form form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 14vh;
     border: 1px solid rgba(0, 0, 0, 0.12);;
     background-color: white;
     box-shadow: 3px 2px 3px rgba(0, 0, 0, 0.568);

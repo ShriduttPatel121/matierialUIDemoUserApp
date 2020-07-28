@@ -13,8 +13,10 @@ const styles = theme => ({
     padding: "2rem",
     width: "70%",
     background : theme.palette.primary.light,
-    color : 'white'
-    
+    color : 'white',
+    display : 'flex',
+    flexDirection : 'column',
+    alignContent : 'center'
   },
   GridContainer : {
       height : '90vh'
@@ -26,12 +28,12 @@ class YourUsers extends Component {
     const { classes } = this.props;
     return (
         <Grid container direction="row" justify="center" alignItems="center">
-          <Grid  item sm={4}>
+          <Grid  item sm={5}>
             <Paper className={classes.paper} elevation={3}>
               <Employee />
             </Paper>
           </Grid>
-          <Grid item sm={4}>
+          <Grid item sm={5}>
             <Paper className={classes.paper} elevation={3}>
               <NewUser />
             </Paper>
