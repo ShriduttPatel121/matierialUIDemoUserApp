@@ -16,12 +16,8 @@ const Employee = (props) =>{
       </CardActionArea>
       <CardActions>
           <Edit />
-          < Details />
         <Button size="small" color="primary">
-          Share
-        </Button>
-        <Button size="small" color="primary">
-          Learn More
+          Show Details
         </Button>
       </CardActions>
     </Card>

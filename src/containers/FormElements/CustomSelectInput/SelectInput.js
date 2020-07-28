@@ -1,5 +1,5 @@
 import React from "react";
-import { FormControl, InputLabel, Select, MenuItem, withStyles } from '@material-ui/core';
+import { FormControl, InputLabel, Select, MenuItem, FormHelperText,withStyles } from '@material-ui/core';
 import { useField } from "formik";
 
 const styles = {
@@ -16,20 +16,22 @@ const styles = {
 
 const SelectInput = (props) => {
 
-    const [field] = useField(props);
+    const [field, meta] = useField(props);
+    const errorText = meta.error && meta.touched ? meta.error : '';
     const { classes } = props;
   return (
-    <FormControl variant="outlined" className={classes.selecter}>
-      <InputLabel className={classes.selecterLabel}>Is Manager?</InputLabel>
+    <FormControl variant="outlined" className={classes.selecter} error={meta.error && meta.touched}>
+      <InputLabel className={classes.selecterLabel}>{props.label}</InputLabel>
       <Select
         {...field}
-        label="Is Manager?"
+        label={props.label}
         fullWidth
-        defaultValue='false'
       >
-        <MenuItem  value='true'>True</MenuItem>
-        <MenuItem selected value='false'>False</MenuItem>
+        {props.options.map(option =>  <MenuItem key={option.value}  value={option.value}>{option.label}</MenuItem>)}
+        {/* <MenuItem  value='true'>True</MenuItem>
+        <MenuItem selected value='false'>False</MenuItem> */}
       </Select>
+      <FormHelperText>{errorText}</FormHelperText>
     </FormControl>
   );
 };
