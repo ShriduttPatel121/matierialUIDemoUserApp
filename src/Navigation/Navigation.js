@@ -27,7 +27,7 @@ class Navigation extends Component {
     }
     render() {
         let navBar = (
-            <AppBar variant="elevation" position="fixed">
+            <AppBar variant="elevation" position="static">
                     <Tabs value={this.state.value} onChange={this.handleChange} aria-label="simple tabs example">
                             <Tab  style={{textTransform : 'capitalize'}} component={Link} to="/Managers" label="Managers"></Tab>
                             <Tab style={{textTransform : 'capitalize'}} component={Link} to="/your-employees" label="Your Employees"></Tab>
