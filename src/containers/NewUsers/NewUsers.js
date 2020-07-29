@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 import CustomeInputText from "../../components/FormElements/CustomeInputText/CustomInputText";
 import SelectInput from "../../components/FormElements/CustomSelectInput/SelectInput";
+import { addEmpWithoutBackend } from '../../store/actions/index';
 import { Button, withStyles } from "@material-ui/core";
+
 import * as Yup from "yup";
 import { Formik } from "formik";
+import { connect } from 'react-redux';
 import classe from "./NewUser.css";
 
 const styles = {
@@ -59,7 +62,7 @@ class NewUser extends Component {
       <div>
         <CustomeInputText label="Username" name="name" />
         <CustomeInputText label="Email" name="email" />
-        <CustomeInputText label="Password" name="password" type="password" />
+        <CustomeInputText label="Password" name="password" type="password" width='15rem'/>
         <SelectInput label='Is Manager' name="isAdmin" options={IS_MANAGER}/>
         <SelectInput label='Designation' name="designation" options={DESIGNATION} />
       </div>
@@ -120,11 +123,14 @@ class NewUser extends Component {
               .required("This field is required"),
           })}
           onSubmit={(values, { setSubmitting, resetForm }) => {
-            setTimeout(() => {
+            /* setTimeout(() => {
               alert(JSON.stringify(values));
               resetForm();
               setSubmitting(false);
-            }, 3000);
+            }, 3000); */
+            resetForm();
+            setSubmitting(false);
+            this.props.onSubmit(values);
           }}
         >
           {(props) => {
@@ -148,4 +154,16 @@ class NewUser extends Component {
     );
   }
 }
-export default withStyles(styles)(NewUser);
+
+const mapStateToProps = state => {
+  return {
+    loading : state.loading
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onSubmit : (empData) => dispatch(addEmpWithoutBackend(empData)) //modify it when this app is integrated with api.....
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(NewUser));

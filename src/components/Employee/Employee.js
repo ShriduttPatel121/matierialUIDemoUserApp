@@ -8,16 +8,17 @@ import {
   Button,
 } from "@material-ui/core";
 import { Edit } from "@material-ui/icons";
+import classes from './Employee.css';
 const Employee = (props) => {
   return (
-    <Card>
+    <Card className={classes.Card}>
       <CardActionArea>
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Shridutt
+            {props.Name}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            React developer
+            {props.Designation}
           </Typography>
         </CardContent>
       </CardActionArea>

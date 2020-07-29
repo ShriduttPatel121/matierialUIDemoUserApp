@@ -1,12 +1,12 @@
-export const SET_AUTH_STATUS_TRUE = 'SET_AUTH_STATUS_TRUE';
-export const SET_AUTH_STATUS_FALSE = 'SET_AUTH_STATUS_FALSE';
-
-export const ADD_USER = 'ADD_USER';
-
 //login process
 export const AUTH_START = 'AUTH_START';
 export const AUTH_SUCCESS = 'AUTH_SUCCESS';
 export const AUTH_FAIL = 'AUTH_FAIL';
+
+//add new employee..
+export const ADD_NEW_EMPLOYEE_START = 'ADD_NEW_EMPLOYEE_START';
+export const ADD_NEW_EMPLOYEE_SUCCESS = 'ADD_NEW_EMPLOYEE_SUCCESS';
+export const ADD_NEW_EMPLOYEE_FAIL = 'ADD_NEW_EMPLOYEE_FAIL';
 
 // fetching current login user's simple user list
 export const FETCH_CURRENT_ADMIN_USERS_START = 'FETCH_CURRENT_ADMIN_USERS_START';
