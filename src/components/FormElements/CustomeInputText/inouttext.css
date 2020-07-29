@@ -2,5 +2,17 @@
     width: 100%;
     padding: 10px;
     box-sizing: border-box;
+    position: relative;
+}
+
+.Icon {
     display: flex;
+    align-items: center;
+    background: rgb(204, 204, 204);
+    justify-content: center;
+    width: 50px;
+    position: absolute;
+    right: 3%;
+    top: 14%;
+    height: 3.4rem;
 }

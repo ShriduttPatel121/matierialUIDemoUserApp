@@ -62,7 +62,7 @@ class NewUser extends Component {
       <div>
         <CustomeInputText label="Username" name="name" />
         <CustomeInputText label="Email" name="email" />
-        <CustomeInputText label="Password" name="password" type="password" width='15rem'/>
+        <CustomeInputText label="Password" name="password" type="password" width='17rem'/>
         <SelectInput label='Is Manager' name="isAdmin" options={IS_MANAGER}/>
         <SelectInput label='Designation' name="designation" options={DESIGNATION} />
       </div>
