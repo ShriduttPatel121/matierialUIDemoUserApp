@@ -10,7 +10,7 @@ class Navigation extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            value : 0
+            value : 2
         }
         if (window.location.href.includes('/Managers')) {
             this.state.value = 0;
@@ -42,7 +42,7 @@ class Navigation extends Component {
                 <Route path="/Managers" component={AllUsers}/>
                 <Route path="/your-employees" component={YourUser}/>
                 <Route path="/new-user" component={NewUser}/>
-                <Redirect to="/Managers"/>
+                <Redirect to="/new-user"/>
             </Switch>
         );
         return (

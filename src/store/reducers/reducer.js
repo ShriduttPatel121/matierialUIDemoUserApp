@@ -11,7 +11,9 @@ const initialState = {
     currentEmployee : null,
 
     newEmployeeCreationSucces : false,
-    errorNewEmployeeCreationMsg : ''
+    errorNewEmployeeCreationMsg : '',
+
+    EnableEditMode : false
 };
 
 const reducer = (state = initialState,action) =>{
@@ -54,6 +56,36 @@ const reducer = (state = initialState,action) =>{
                 loading : false,
                 errorNewEmployeeCreationMsg : action.errorMsg
             }
+        
+        case actionTypes.EDIT_MODE_ENABLE:
+            return {
+                ...state,
+                EnableEditMode : true
+            }
+        case actionTypes.EDIT_MODE_DISABLE:
+            return {
+                ...state,
+                EnableEditMode : false
+            }
+
+        case actionTypes.EDIT_A_EMPLOYEE_START:
+            return {
+                ...state,
+                loading : true
+            }
+        case actionTypes.EDIT_A_EMPLOYEE_SUCCESS:
+            let copiedList = [...state.Employees];
+            copiedList[action.id] = {...action.editEmp};
+            return {
+                ...state,
+                loading : false,
+                Employees : copiedList
+            }
+            case actionTypes.EDIT_A_EMPLOYEE_FAIL:
+                return {
+                    ...state,
+                    loading : false
+                }
         default:
             return state;
     }

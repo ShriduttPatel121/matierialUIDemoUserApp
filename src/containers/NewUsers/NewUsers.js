@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import CustomeInputText from "../../components/FormElements/CustomeInputText/CustomInputText";
 import SelectInput from "../../components/FormElements/CustomSelectInput/SelectInput";
-import { addEmpWithoutBackend } from '../../store/actions/index';
+import { addEmpWithoutBackend, editEmpWithoutBackEnd, editModeDisable } from '../../store/actions/index';
 import { Button, withStyles } from "@material-ui/core";
 
 import * as Yup from "yup";
@@ -55,14 +55,35 @@ const DESIGNATION = [
 
 ]
 
+const initialValue = {
+  name: "",
+  email: "",
+  password: "",
+  isAdmin: "false",
+  designation: "",
+}
+
 class NewUser extends Component {
+  state = {
+    passwordToggle : 'password'
+  }
+
+  passwordVisibilityToggler = () => {
+    this.setState(preState => {
+      if (preState.passwordToggle === 'text') {
+        return ({passwordToggle : 'password'});
+      } else {
+        return ({passwordToggle : 'text'});
+      }
+    })
+  }
   render() {
     const { classes } = this.props;
     let form = (
       <div>
         <CustomeInputText label="Username" name="name" />
         <CustomeInputText label="Email" name="email" />
-        <CustomeInputText label="Password" name="password" type="password" width='17rem'/>
+        <CustomeInputText label="Password" name="password" type={this.state.passwordToggle} visibilityicon='true' visiblilitytoggler={this.passwordVisibilityToggler}/>
         <SelectInput label='Is Manager' name="isAdmin" options={IS_MANAGER}/>
         <SelectInput label='Designation' name="designation" options={DESIGNATION} />
       </div>
@@ -72,20 +93,8 @@ class NewUser extends Component {
         <Formik
           initialValues={
             this.props.editMode
-              ? {
-                  name: "",
-                  email: "",
-                  password: "",
-                  isAdmin: "false",
-                  designation: "",
-                }
-              : /* this.props.currentEmployee && {} */{
-                name: "",
-                email: "",
-                password: "",
-                isAdmin: "false",
-                designation: "",
-              }
+              ? this.props.currentEmployee || initialValue 
+              : initialValue
           }
           validationSchema={Yup.object({
             name: Yup.string()
@@ -123,14 +132,15 @@ class NewUser extends Component {
               .required("This field is required"),
           })}
           onSubmit={(values, { setSubmitting, resetForm }) => {
-            /* setTimeout(() => {
-              alert(JSON.stringify(values));
-              resetForm();
-              setSubmitting(false);
-            }, 3000); */
-            resetForm();
+            console.log('rest');
             setSubmitting(false);
-            this.props.onSubmit(values);
+            if (this.props.editMode){
+              this.props.onEdit(values, this.props.SelectedEmpId);
+              this.props.onEditModeDisable();
+            } else {
+              resetForm(initialValue);
+              this.props.onSubmit(values);
+            }
           }}
         >
           {(props) => {
@@ -157,13 +167,16 @@ class NewUser extends Component {
 
 const mapStateToProps = state => {
   return {
-    loading : state.loading
+    loading : state.loading,
+    editMode : state.EnableEditMode
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    onSubmit : (empData) => dispatch(addEmpWithoutBackend(empData)) //modify it when this app is integrated with api.....
+    onSubmit : (empData) => dispatch(addEmpWithoutBackend(empData)), //modify it when this app is integrated with api.....
+    onEdit : (empData, id) => dispatch(editEmpWithoutBackEnd(empData, id)), //modify it when this app is integrated with api.....
+    onEditModeDisable : () => dispatch(editModeDisable())
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(NewUser));

@@ -23,7 +23,7 @@ const Employee = (props) => {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Edit />
+        <Edit onClick={props.editClick}/>
         <Button size="small" color="primary">
           Show Details
         </Button>

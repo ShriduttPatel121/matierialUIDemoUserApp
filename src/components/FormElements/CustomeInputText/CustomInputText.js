@@ -7,10 +7,11 @@ import { Visibility } from '@material-ui/icons'
 const CustomeInputText = (props) => {
     const [field, meta] = useField(props);
     const errorText = meta.error && meta.touched ? meta.error : '';
+    const { visiblilitytoggler } =props
   return (
       <div className={classes.Input}>
-        <TextField  autoComplete="off" {...props}  helperText={errorText} style={{width : '20rem'}}  variant="outlined" label={props.label} error={meta.error && meta.touched} {...field}/>
-        {props.width?<div className={classes.Icon}><Visibility color='primary'/></div> : null}
+        <TextField  autoComplete="off"  type={props.type} name={props.name}  helperText={errorText} style={{width : '20rem'}}  variant="outlined" label={props.label} error={meta.error && meta.touched} {...field}/>
+        {props.visibilityicon === 'true'?<div onClick={visiblilitytoggler} className={classes.Icon}><Visibility color='primary'/></div> : null}
       </div>
   );
 };

@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { withStyles, Grid, Paper } from "@material-ui/core";
 import Employee from '../../components/Employee/Employee'
 import NewUser from '../NewUsers/NewUsers';
+import Welcome from '../../components/GreetingMessage/welcom';
+import { editModeEnable } from '../../store/actions/index'
 const styles = theme => ({
   
   paper: {
@@ -19,8 +21,28 @@ const styles = theme => ({
   
 });
 class YourUsers extends Component {
+  state ={ // state has been managed for edit and show details views....
+    selectedEmployee : {
+      name: "",
+      email: "",
+      password: "",
+      isAdmin: "false",
+      designation: "",
+    },
+    editMode : false,
+    SelectedEmpId : null
+
+  }
+  editClickHandler = (id) => {
+    console.log(this.state.selectedEmployee);
+    this.props.onEditModeEnable();
+    const selectedEmp = this.props.Employees[id];
+    this.setState({selectedEmployee : selectedEmp, SelectedEmpId : id}, () => {console.log(this.state.selectedEmployee)});
+  }
+
   render() {
-    let employees = this.props.Employees.map(emp => <Employee Name={emp.name} Designation={emp.designation}/>)
+    let employees = this.props.Employees.map((emp, i) => <Employee editClick={() => this.editClickHandler(i)} key={i} id={i} Name={emp.name} Designation={emp.designation}/>);
+
     const { classes } = this.props;
     return (
         <Grid container direction="row" justify="center" alignItems="center">
@@ -31,7 +53,7 @@ class YourUsers extends Component {
           </Grid>
           <Grid item sm={5}>
             <Paper className={classes.paper} elevation={3}>
-              <NewUser />
+              {this.props.editMode? <NewUser SelectedEmpId={this.state.SelectedEmpId} currentEmployee={this.state.selectedEmployee} editMode={this.state.editMode}/> : <Welcome />}
             </Paper>
           </Grid>
         </Grid>
@@ -42,8 +64,15 @@ class YourUsers extends Component {
 const mapStateToProps = state => {
   return {
     loading : state.loading,
-    Employees : state.Employees
+    Employees : state.Employees,
+    editMode : state.EnableEditMode
   }
 }
 
-export default connect(mapStateToProps, null)(withStyles(styles)(YourUsers));
+const mapDispatchToProps = dispatch => {
+  return {
+    onEditModeEnable : () => dispatch(editModeEnable()),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(YourUsers));
