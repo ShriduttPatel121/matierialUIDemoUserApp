@@ -35,9 +35,11 @@ class YourUsers extends Component {
   }
   editClickHandler = (id) => {
     console.log(this.state.selectedEmployee);
-    this.props.onEditModeEnable();
-    const selectedEmp = this.props.Employees[id];
-    this.setState({selectedEmployee : selectedEmp, SelectedEmpId : id}, () => {console.log(this.state.selectedEmployee)});
+    if (!this.props.editMode){
+      this.props.onEditModeEnable();
+    }
+    let selectedEmp = {...this.props.Employees[id]};
+    this.setState({selectedEmployee : selectedEmp, SelectedEmpId : id});
   }
 
   render() {

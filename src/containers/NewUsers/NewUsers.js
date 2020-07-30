@@ -78,7 +78,9 @@ class NewUser extends Component {
     })
   }
   render() {
-    const { classes } = this.props;
+    const { classes, currentEmployee } = this.props;
+    console.log('from new user');
+    console.log(this.props.currentEmployee);
     let form = (
       <div>
         <CustomeInputText label="Username" name="name" />
@@ -93,7 +95,7 @@ class NewUser extends Component {
         <Formik
           initialValues={
             this.props.editMode
-              ? this.props.currentEmployee || initialValue 
+              ? currentEmployee
               : initialValue
           }
           validationSchema={Yup.object({
@@ -144,6 +146,7 @@ class NewUser extends Component {
           }}
         >
           {(props) => {
+            console.log(props);
             return (
               <form className="signup-form" onSubmit={props.handleSubmit}>
                 {form}
