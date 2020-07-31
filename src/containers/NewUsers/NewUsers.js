@@ -79,8 +79,6 @@ class NewUser extends Component {
   }
   render() {
     const { classes, currentEmployee } = this.props;
-    console.log('from new user');
-    console.log(this.props.currentEmployee);
     let form = (
       <div>
         <CustomeInputText label="Username" name="name" />
@@ -98,6 +96,7 @@ class NewUser extends Component {
               ? currentEmployee
               : initialValue
           }
+          enableReinitialize
           validationSchema={Yup.object({
             name: Yup.string()
               .min(4, "4 characters or more")
@@ -134,7 +133,6 @@ class NewUser extends Component {
               .required("This field is required"),
           })}
           onSubmit={(values, { setSubmitting, resetForm }) => {
-            console.log('rest');
             setSubmitting(false);
             if (this.props.editMode){
               this.props.onEdit(values, this.props.SelectedEmpId);
@@ -146,7 +144,6 @@ class NewUser extends Component {
           }}
         >
           {(props) => {
-            console.log(props);
             return (
               <form className="signup-form" onSubmit={props.handleSubmit}>
                 {form}

@@ -34,7 +34,6 @@ class YourUsers extends Component {
 
   }
   editClickHandler = (id) => {
-    console.log(this.state.selectedEmployee);
     if (!this.props.editMode){
       this.props.onEditModeEnable();
     }

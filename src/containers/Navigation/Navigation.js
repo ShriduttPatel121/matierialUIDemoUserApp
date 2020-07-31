@@ -19,7 +19,6 @@ class Navigation extends Component {
         } else if (window.location.href.includes('/new-user')) {
             this.state.value = 2;
         }
-        console.log(window.location.href)
     }
     
     handleChange = (event, newValue) => {
