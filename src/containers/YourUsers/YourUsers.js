@@ -29,7 +29,6 @@ class YourUsers extends Component {
       isAdmin: "false",
       designation: "",
     },
-    editMode : false,
     SelectedEmpId : null
 
   }
