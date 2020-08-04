@@ -3,17 +3,21 @@ export const AUTH_START = 'AUTH_START';
 export const AUTH_SUCCESS = 'AUTH_SUCCESS';
 export const AUTH_FAIL = 'AUTH_FAIL';
 
-//add new employee..
+//add new employee..(use)
 export const ADD_NEW_EMPLOYEE_START = 'ADD_NEW_EMPLOYEE_START';
 export const ADD_NEW_EMPLOYEE_SUCCESS = 'ADD_NEW_EMPLOYEE_SUCCESS';
 export const ADD_NEW_EMPLOYEE_FAIL = 'ADD_NEW_EMPLOYEE_FAIL';
 
-// edit a employee
+// edit a employee...(use)
 export const EDIT_A_EMPLOYEE_START = 'EDIT_A_EMPLOYEE_START';
 export const EDIT_A_EMPLOYEE_SUCCESS = 'EDIT_A_EMPLOYEE_SUCCESS';
 export const EDIT_A_EMPLOYEE_FAIL = 'EDIT_A_EMPLOYEE_FAIL';
 export const EDIT_MODE_ENABLE = 'EDIT_MODE_ENABLE';
 export const EDIT_MODE_DISABLE = 'EDIT_MODE_DISABLE';
+
+// show details of employee....(use)
+export const SHOW_DETAILS_ENABLE = 'SHOW_DETAILS_ENABLE';
+export const SHOW_DETAILS_DISABLE = 'SHOW_DETAILS_DISABLE';
 
 // fetching current login user's simple user list
 export const FETCH_CURRENT_ADMIN_USERS_START = 'FETCH_CURRENT_ADMIN_USERS_START';

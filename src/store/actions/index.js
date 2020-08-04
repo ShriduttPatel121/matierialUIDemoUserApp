@@ -3,4 +3,6 @@ export {
     editEmpWithoutBackEnd,
     editModeDisable,
     editModeEnable,
+    showDetailsModeEnable,
+    showDetailsDisable
 } from './actions'

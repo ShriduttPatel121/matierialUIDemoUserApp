@@ -16,6 +16,7 @@ export const editEmpWithoutBackEnd = (empData, id) => {
     }
 }
 
+//to enable edit mode
 export const editModeEnable = () => {
     return {
         type : actionTypes.EDIT_MODE_ENABLE
@@ -25,5 +26,19 @@ export const editModeEnable = () => {
 export const editModeDisable = () => {
     return {
         type : actionTypes.EDIT_MODE_DISABLE
+    }
+}
+
+// to enable show details mode
+
+export const showDetailsModeEnable = () => {
+    return {
+        type : actionTypes.SHOW_DETAILS_ENABLE
+    }
+}
+
+export const showDetailsDisable = () => {
+    return {
+        type : actionTypes.SHOW_DETAILS_DISABLE
     }
 }

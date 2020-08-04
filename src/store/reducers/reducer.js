@@ -13,7 +13,8 @@ const initialState = {
     newEmployeeCreationSucces : false,
     errorNewEmployeeCreationMsg : '',
 
-    EnableEditMode : false
+    EnableEditMode : false,
+    showDetailsMode : false,
 };
 
 const reducer = (state = initialState,action) =>{
@@ -81,11 +82,23 @@ const reducer = (state = initialState,action) =>{
                 loading : false,
                 Employees : copiedList
             }
-            case actionTypes.EDIT_A_EMPLOYEE_FAIL:
-                return {
-                    ...state,
-                    loading : false
-                }
+        case actionTypes.EDIT_A_EMPLOYEE_FAIL:
+            return {
+                ...state,
+                loading : false
+            }
+        
+        case actionTypes.SHOW_DETAILS_ENABLE:
+            return {
+                ...state,
+                showDetailsMode : true
+            }
+        
+        case actionTypes.SHOW_DETAILS_DISABLE:
+            return {
+                ...state,
+                showDetailsMode : false
+            }
         default:
             return state;
     }

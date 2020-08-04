@@ -24,7 +24,7 @@ const Employee = (props) => {
       </CardActionArea>
       <CardActions>
         <Edit onClick={props.editClick}/>
-        <Button size="small" color="primary">
+        <Button onClick={props.showDetailHandler} size="small" color="primary">
           Show Details
         </Button>
       </CardActions>
