@@ -1,7 +1,6 @@
 import React from 'react';
 import { Card, Typography,CardActionArea, CardContent, } from '@material-ui/core';
 const EmployeeDetails = (props) =>{
-    console.log(props.selectedEmployeeDetails);
     return(
         <Card>
             <CardActionArea>

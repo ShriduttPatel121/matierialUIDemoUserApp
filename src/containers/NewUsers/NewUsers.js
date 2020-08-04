@@ -78,7 +78,7 @@ class NewUser extends Component {
     })
   }
   render() {
-    console.log(this.props.editMode);
+    
     const { classes, currentEmployee } = this.props;
     let form = (
       <div>
@@ -145,7 +145,6 @@ class NewUser extends Component {
           }}
         >
           {(props) => {
-            console.log(props)
             return (
               <form className="signup-form" onSubmit={props.handleSubmit}>
                 {form}
