@@ -18,6 +18,8 @@ const styles = theme => ({
     display : 'flex',
     flexDirection : 'column',
     alignContent : 'center',
+    maxWidth : '450px',
+    minWidth : '350px'
   },
   
 });
@@ -68,16 +70,16 @@ class YourUsers extends Component {
     const { classes } = this.props;
     return (
         <Grid container direction="row" justify="center" alignItems="center">
-          <Grid  item sm={5}>
+          <Grid  item sm={4}>
             <Paper className={classes.paper} elevation={3}>
               {employees}
             </Paper>
           </Grid>
-          <Grid item sm={5}>
+          <Grid item sm={4}>
             <Paper className={classes.paper} elevation={3}>
               { !this.props.editMode && !this.props.showDetailsMode ? <Welcome /> : null}
               {this.props.editMode ? <NewUser SelectedEmpId={this.state.SelectedEmpId} currentEmployee={this.state.selectedEmployee} editMode={this.state.editMode}/> : null}
-              {this.props.showDetailsMode ? <EmployeeDetails selectedEmployeeDetails={this.state.selectedEmployee}/> : null}
+              {this.props.showDetailsMode ? <EmployeeDetails disableShowDetails={this.props.onShowDetailsDisable} selectedEmployeeDetails={this.state.selectedEmployee}/> : null}
             </Paper>
           </Grid>
         </Grid>
