@@ -54,8 +54,8 @@ class Navigation extends Component {
             
             routes = (
                 <Switch>
-                    <Redirect to="/Login"/>
                     <Route path='/Login' component={Login}/>
+                    <Redirect to="/Login"/>
                 </Switch>
             );
         }
