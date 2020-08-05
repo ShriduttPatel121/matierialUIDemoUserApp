@@ -29,6 +29,7 @@ const reducer = (state = initialState,action) =>{
             return {
                 ...state,
                 loading : false,
+                isAutneticated : true,
                 currentEmployee : action.currentEmployee
             }
         

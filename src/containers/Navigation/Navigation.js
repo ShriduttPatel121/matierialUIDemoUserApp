@@ -60,7 +60,7 @@ class Navigation extends Component {
             );
         }
         let navBar = (
-            <AppBar variant="elevation" position="static">
+            <AppBar variant="elevation" position="fixed">
                 {tabs}
             </AppBar>
         );

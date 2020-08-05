@@ -10,7 +10,7 @@ const styles = theme => ({
   
   paper: {
     height: "80vh",
-    marginTop: "2rem",
+    marginTop: "5rem",
     padding: "2rem",
     width: "70%",
     background : theme.palette.primary.light,
@@ -19,7 +19,7 @@ const styles = theme => ({
     flexDirection : 'column',
     alignContent : 'center',
     maxWidth : '450px',
-    minWidth : '350px'
+    minWidth : '350px',
   },
   
 });

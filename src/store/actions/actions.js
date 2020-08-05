@@ -42,3 +42,9 @@ export const showDetailsDisable = () => {
         type : actionTypes.SHOW_DETAILS_DISABLE
     }
 }
+
+export const dummyAuth = () => {
+    return {
+        type : actionTypes.AUTH_SUCCESS
+    }
+}

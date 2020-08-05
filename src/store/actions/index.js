@@ -4,5 +4,6 @@ export {
     editModeDisable,
     editModeEnable,
     showDetailsModeEnable,
-    showDetailsDisable
+    showDetailsDisable,
+    dummyAuth
 } from './actions'
