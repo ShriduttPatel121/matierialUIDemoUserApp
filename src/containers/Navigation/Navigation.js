@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import NewUser from '../NewUsers/NewUsers';
 import AllUsers from '../AllUsers/AllUsers';
 import YourUser from '../YourUsers/YourUsers';
+import Login from '../Login/Login';
+import { connect } from 'react-redux'
 import classes from './Navigation.css';
 class Navigation extends Component {
     constructor(props) {
@@ -25,17 +27,15 @@ class Navigation extends Component {
         this.setState({value : newValue});
     }
     render() {
-        let navBar = (
-            <AppBar variant="elevation" position="static">
-                    <Tabs value={this.state.value} onChange={this.handleChange} aria-label="simple tabs example">
-                            <Tab  style={{textTransform : 'capitalize'}} component={Link} to="/Managers" label="Managers"></Tab>
-                            <Tab style={{textTransform : 'capitalize'}} component={Link} to="/your-employees" label="Your Employees"></Tab>
-                            <Tab style={{textTransform : 'capitalize'}} component={Link} to="/new-user" label="New user"></Tab>
-                            <Tab  style={{marginLeft: 'auto',textTransform : 'capitalize'}} label='Logout'></Tab>
-                    </Tabs>
-            </AppBar>
+        let tabs = (
+            <Tabs value={this.state.value} onChange={this.handleChange} aria-label="simple tabs example">
+                <Tab  style={{textTransform : 'capitalize'}} component={Link} to="/Managers" label="Managers"></Tab>
+                <Tab style={{textTransform : 'capitalize'}} component={Link} to="/your-employees" label="Your Employees"></Tab>
+                <Tab style={{textTransform : 'capitalize'}} component={Link} to="/new-user" label="New user"></Tab>
+                <Tab  style={{marginLeft: 'auto',textTransform : 'capitalize'}} component={Link} to='/Login' label='Logout'></Tab>
+            </Tabs>
         );
-        
+
         let routes = (
             <Switch>
                 <Route path="/Managers" component={AllUsers}/>
@@ -44,6 +44,27 @@ class Navigation extends Component {
                 <Redirect to="/new-user"/>
             </Switch>
         );
+
+        if (!this.props.isAutneticated) {
+            tabs = (
+                <Tabs value={0} aria-label="simple tabs example">
+                    <Tab style={{marginLeft: 'auto',textTransform : 'capitalize'}} label="Login"></Tab>
+                </Tabs>
+            );
+            
+            routes = (
+                <Switch>
+                    <Redirect to="/Login"/>
+                    <Route path='/Login' component={Login}/>
+                </Switch>
+            );
+        }
+        let navBar = (
+            <AppBar variant="elevation" position="static">
+                {tabs}
+            </AppBar>
+        );
+        
         return (
             <React.Fragment>
                 {navBar}
@@ -54,4 +75,17 @@ class Navigation extends Component {
         );
     }
 }
-export default Navigation;
+
+const mapStateToProps = state => {
+    return {
+        isAutneticated : state.isAutneticated
+    }
+  }
+  
+  const mapDispatchToProps = dispatch => {
+    return {
+      
+    }
+  }
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navigation);
