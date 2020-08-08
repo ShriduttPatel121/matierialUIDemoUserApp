@@ -8,7 +8,6 @@
 .Icon {
     display: flex;
     align-items: center;
-    background: rgb(204, 204, 204);
     justify-content: center;
     width: 50px;
     position: absolute;
@@ -16,4 +15,8 @@
     top: 14.5%;
     height: 3.39rem;
     border-radius: 3px;
+}
+
+.IconInvalid {
+    top : 11.5%
 }
